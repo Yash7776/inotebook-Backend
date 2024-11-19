@@ -109,7 +109,16 @@ USE_I18N = True
 
 USE_TZ = True
 
-CORS_ALLOWED_ORIGINS = ['*']
+CORS_ALLOWED_ORIGINS = [
+    "https://i-notebook-xi-sooty.vercel.app",
+    "https://i-notebook-yashs-projects-a8eccc46.vercel.app",
+    "https://i-notebook-git-main-yashs-projects-a8eccc46.vercel.app",
+    "https://inotebook-backend-6cei.onrender.com",
+    "http://localhost:3000",
+    "http://localhost:8000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:8000",
+]
 
 AUTH_USER_MODEL='account.User'
 
