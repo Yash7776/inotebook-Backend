@@ -110,7 +110,7 @@ USE_I18N = True
 USE_TZ = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://example.com",
+    "https://i-notebook-96a12lz7d-yashs-projects-a8eccc46.vercel.app",
     "https://sub.example.com",
     "http://localhost:3000",
     "http://localhost:8000",
