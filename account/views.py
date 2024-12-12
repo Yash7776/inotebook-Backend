@@ -83,25 +83,6 @@ class ResetPasswordByLinkView(APIView):
         return Response({'msg':'Password Reset SucessFully'},status=status.HTTP_200_OK)
 
 
-# class Nots(APIView):
-    permission_classes=[IsAuthenticated]
-    def get(self,request,format=None):
-        user=request.user
-        notes=user.note_set.all()
-        serializer=NoteSerilaizer(notes,many=True)
-        return Response(serializer.data,status=status.HTTP_200_OK)
-    
-    def post(self,request):
-        serializer=AddNotesSerializer(data=request.data,context={'user':request.user})
-        serializer.is_valid(raise_exception=True)
-        return Response({'msg':'Note Added Sucessesfully'},status=status.HTTP_200_OK)
-    
-    def put(self,request):
-        
-        serializer=UpdateNotesSerializer(data=request.data,context={'user':request.user})
-        serializer.is_valid(raise_exception=True)
-        return Response({'msg':'Note Updated Sucessesfully'},status=status.HTTP_200_OK)
-
 class NoteListCreateView(generics.ListCreateAPIView):
     permission_classes=[IsAuthenticated]
     serializer_class=NoteSerilaizer

@@ -1,13 +1,20 @@
-from django.core.mail import EmailMessage
-import os
+import smtplib
+
+from django.http import JsonResponse # type: ignore
 
 class Utils:
-    @staticmethod
     def send_email(data):
-        email = EmailMessage(
-            subject=data['subject'], 
-            body=data['body'],
-            from_email=os.environ.get('EMAIL_FROM'),
-            to=[data['to_email']],
+        try:
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login('ayushpathak7776@gmail.com', 'inxbkyqhtnavmrjt')  # Use your real app password
+            server.sendmail(
+                'ayushpathak7776@gmail.com', 
+                [f'{data['to_email']}'],
+                f"Subject: {data['subject']}\n\n{data['body']}"
             )
-        email.send()
+            server.quit()
+            return JsonResponse("Email sent successfully!")
+        except Exception as e:
+            print(f"Error: {e}")
+            return JsonResponse(f"Error: {e}")
