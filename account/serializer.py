@@ -92,7 +92,7 @@ class ResetPasswordEmailSerailizer(serializers.Serializer):
             print("Encoded UID",uid)
             token=PasswordResetTokenGenerator().make_token(user)
             print("Password reset Token",token)
-            link=('http://127.0.0.1:8000/api/user/resetpassword/'+uid+'/'+token)
+            link=('https://inotebook-backend-6cei.onrender.com/api/user/resetpassword/'+uid+'/'+token)
             # Send Email To User
             print('password Reset Link',link)
             body="Click Below Link To Reset Your Password\n"+link
