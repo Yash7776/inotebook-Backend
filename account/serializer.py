@@ -95,14 +95,14 @@ class ResetPasswordEmailSerailizer(serializers.Serializer):
             link=('http://127.0.0.1:8000/api/user/resetpassword/'+uid+'/'+token)
             # Send Email To User
             print('password Reset Link',link)
-            body="Click Below Link To Reset Your Password"+link
+            body="Click Below Link To Reset Your Password\n"+link
             data={
                 'subject':'Reset Your PassWord',
                 'body':body,
                 'to_email':user.email
             }
             # Sending An Email
-            # Utils.send_email(data=data)
+            Utils.send_email(data=data)
             return attrs
         else:
             raise serializers.ValidationError('You Are Not Register User')
