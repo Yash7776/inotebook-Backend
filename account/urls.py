@@ -1,5 +1,5 @@
 from django.urls import path,include
-from account.views import UserRegistrationView,UserLoginView,ProfileView,ProfileEditView,ChangePasswordView,ResetPasswordEmailView,ResetPasswordByLinkView,NoteListCreateView,NoteDetailView
+from account.views import UserRegistrationView,UserLoginView,ProfileView,ProfileEditView,ChangePasswordView,ResetPasswordEmailView,ResetPasswordByLinkView,NoteListCreateView,NoteDetailView,TokenRefreshView
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('register', UserRegistrationView.as_view(),name='register'),
     path('login',UserLoginView.as_view(),name='login'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('profile',ProfileView.as_view(),name='profile'),
     path('editprofile',ProfileEditView.as_view(),name='editprofile'),
     path('changepassword',ChangePasswordView.as_view(),name='changepassword'),

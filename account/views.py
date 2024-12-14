@@ -7,6 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import Note,User
 from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.exceptions import AuthenticationFailed
 
 
 def get_tokens_for_user(user):
@@ -27,6 +28,7 @@ class UserRegistrationView(APIView):
             return Response({'msg':"Registration  Sucess",'token':token},status=status.HTTP_200_OK)
         return Response({'msg':"Something Went Wrong"},status=status.HTTP_400_BAD_REQUEST)
 
+      
 class UserLoginView(APIView):
 
     def post(self,request,format=None):
@@ -42,6 +44,23 @@ class UserLoginView(APIView):
         else:
             return Response({'msg':'Enter Valid Email Or PassWord'},status=status.HTTP_404_NOT_FOUND)        
                 
+
+class TokenRefreshView(APIView):
+    permission_classes=[IsAuthenticated]
+    def post(self, request):
+        refresh_token = request.data.get('refresh')
+        if not refresh_token:
+            return Response({"error": "Refresh token is required."},status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            refresh = RefreshToken(refresh_token)
+            new_access_token = refresh.access_token
+            return Response(
+                {"access": str(new_access_token)},
+                status=status.HTTP_200_OK
+            )
+        except Exception as e:
+            raise AuthenticationFailed("Invalid or expired refresh token.")
 
 class ProfileView(APIView):
     permission_classes=[IsAuthenticated]
