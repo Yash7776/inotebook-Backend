@@ -1,0 +1,496 @@
+{
+	"info": {
+		"_postman_id": "aaa4ed79-2f3d-449e-b07c-aab1f99273be",
+		"name": "iNotebook",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32976391"
+	},
+	"item": [
+		{
+			"name": "User Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ayushpathak7776@gmail.com\",\r\n    \"name\": \"Yash\",\r\n    \"password\": \"7776\",\r\n    \"password2\":  \"7776\",\r\n    \"tc\":  \"True\"  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM0MjY0MTk5LCJpYXQiOjE3MzQxNzc3NDUsImp0aSI6ImJkNTU3NmY4NmEyNzQ1NDA4YTY5YzBkNjY3ZWNjNzAzIiwidXNlcl9pZCI6MX0.0maHG0nHtgHb5IcdpQW_FnGOO5zeO-yV9dUp19aOFqI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ayushpathak7776@gmail.com\",\r\n    \"password\": \"7776\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM0MjY0Mjc4LCJpYXQiOjE3MzQxNzc4NzgsImp0aSI6IjVlYWYxYjY5NjUxNDRkYzQ4NWU3Njk1NmJjZGUwZjdhIiwidXNlcl9pZCI6MX0.BNmEwbPG1bp0cQOqcmJPsgnd8UisBUHI-daQahQHpVk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczNjc2OTc0NSwiaWF0IjoxNzM0MTc3NzQ1LCJqdGkiOiJiZmRhYzUzMDZiOGE0ZWU0ODJkYzIyYWJhODY4ODYxZiIsInVzZXJfaWQiOjF9.ipoUbsSPlbRKdYQJ_QA6iMIZKpyHfp9306WQGJIMvyc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/token/refresh/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"token",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM0MjYxMDM4LCJpYXQiOjE3MzQxNzQ2MTEsImp0aSI6ImM0NzFlZWIwNDhkNjQ1ZThiMmVlYzRlMzM0NjlkODA0IiwidXNlcl9pZCI6MX0.US91_4mhVNLCCY5RQpELGardQith3zQ2AuNO91w1T6o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM0MjM3MjExLCJpYXQiOjE3MzQxNTA4MTEsImp0aSI6IjQwYTY3Mzg0MjQ3NTQ1ODE5MWUyZTYyOWM0OTJiODA0IiwidXNlcl9pZCI6MX0.RcbEYYWPB5LFiz5uQrKuPzLxLmr1vn7V354DdFFyGFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"7776\",\r\n    \"password2\": \"7776\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/changepassword",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"changepassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password/ Forgot Passsword",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ayushpathak7776@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/reset-password",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Password Reset Link",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"7776\",\r\n    \"password2\": \"7776\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/resetpassword/Mw/ce0cvp-c0c838121349359e7d71a403907227f3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"resetpassword",
+								"Mw",
+								"ce0cvp-c0c838121349359e7d71a403907227f3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notes",
+			"item": [
+				{
+					"name": "Get User Notes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM0MjM3MjExLCJpYXQiOjE3MzQxNTA4MTEsImp0aSI6IjQwYTY3Mzg0MjQ3NTQ1ODE5MWUyZTYyOWM0OTJiODA0IiwidXNlcl9pZCI6MX0.RcbEYYWPB5LFiz5uQrKuPzLxLmr1vn7V354DdFFyGFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/notes/10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"notes",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Note By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM0MjM3MjExLCJpYXQiOjE3MzQxNTA4MTEsImp0aSI6IjQwYTY3Mzg0MjQ3NTQ1ODE5MWUyZTYyOWM0OTJiODA0IiwidXNlcl9pZCI6MX0.RcbEYYWPB5LFiz5uQrKuPzLxLmr1vn7V354DdFFyGFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/notes/10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"notes",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM0MjM3MjExLCJpYXQiOjE3MzQxNTA4MTEsImp0aSI6IjQwYTY3Mzg0MjQ3NTQ1ODE5MWUyZTYyOWM0OTJiODA0IiwidXNlcl9pZCI6MX0.RcbEYYWPB5LFiz5uQrKuPzLxLmr1vn7V354DdFFyGFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"note\":\"From POSTMAN Api\",\r\n\"theme\":\"danger\"\r\n}\r\n    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/notes/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"notes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Notes Copy 2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM0MjM3MjExLCJpYXQiOjE3MzQxNTA4MTEsImp0aSI6IjQwYTY3Mzg0MjQ3NTQ1ODE5MWUyZTYyOWM0OTJiODA0IiwidXNlcl9pZCI6MX0.RcbEYYWPB5LFiz5uQrKuPzLxLmr1vn7V354DdFFyGFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 10,\r\n    \"note\": \"Night Diner At Hotel Punjab\",\r\n    \"theme\": \"danger\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/notes/10/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"notes",
+								"10",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM0MjM3MjExLCJpYXQiOjE3MzQxNTA4MTEsImp0aSI6IjQwYTY3Mzg0MjQ3NTQ1ODE5MWUyZTYyOWM0OTJiODA0IiwidXNlcl9pZCI6MX0.RcbEYYWPB5LFiz5uQrKuPzLxLmr1vn7V354DdFFyGFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/notes/10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"notes",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

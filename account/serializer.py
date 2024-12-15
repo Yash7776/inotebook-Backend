@@ -92,7 +92,7 @@ class ResetPasswordEmailSerailizer(serializers.Serializer):
             print("Encoded UID",uid)
             token=PasswordResetTokenGenerator().make_token(user)
             print("Password reset Token",token)
-            link=('https://inotebook-backend-6cei.onrender.com/api/user/resetpassword/'+uid+'/'+token)
+            link=('https://i-notebook-xi-sooty.vercel.app/resetpassword/'+uid+'/'+token)
             # Send Email To User
             print('password Reset Link',link)
             body="Click Below Link To Reset Your Password\n"+link
