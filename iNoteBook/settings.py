@@ -72,11 +72,29 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'conn_max_age':600, # keep the connection alive 
     }
 }
+
 import dj_database_url
 
-DATABASES["default"]=dj_database_url.parse("postgresql://inoetbook_user:w9hPpIzNMuLsHLquEf7wZnBM8s3Sa10H@dpg-csthgblumphs73forr40-a.oregon-postgres.render.com/inoetbook")
+DATABASES["default"]=dj_database_url.parse("postgresql://postgres:Ayush@7776@db.qpvtonsiajnwdwojcdwj.supabase.co:5432/postgres")
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'iNoteBook',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Ayush@7776',
+#         'HOST': 'qpvtonsiajnwdwojcdwj.supabase.co',
+#         'PORT': '5432',
+#     }
+# }
+
+
+
+
 
 
 # Password validation
